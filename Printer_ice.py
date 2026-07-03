@@ -39,6 +39,30 @@ if 'PrinterPrx' not in _M_Demo.__dict__:
         def end_printString(self, _r):
             return _M_Demo.Printer._op_printString.end(self, _r)
 
+        def printUpper(self, s, context=None):
+            return _M_Demo.Printer._op_printUpper.invoke(self, ((s, ), context))
+
+        def printUpperAsync(self, s, context=None):
+            return _M_Demo.Printer._op_printUpper.invokeAsync(self, ((s, ), context))
+
+        def begin_printUpper(self, s, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Demo.Printer._op_printUpper.begin(self, ((s, ), _response, _ex, _sent, context))
+
+        def end_printUpper(self, _r):
+            return _M_Demo.Printer._op_printUpper.end(self, _r)
+
+        def printLower(self, s, context=None):
+            return _M_Demo.Printer._op_printLower.invoke(self, ((s, ), context))
+
+        def printLowerAsync(self, s, context=None):
+            return _M_Demo.Printer._op_printLower.invokeAsync(self, ((s, ), context))
+
+        def begin_printLower(self, s, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Demo.Printer._op_printLower.begin(self, ((s, ), _response, _ex, _sent, context))
+
+        def end_printLower(self, _r):
+            return _M_Demo.Printer._op_printLower.end(self, _r)
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Demo.PrinterPrx.ice_checkedCast(proxy, '::Demo::Printer', facetOrContext, context)
@@ -71,6 +95,12 @@ if 'PrinterPrx' not in _M_Demo.__dict__:
         def printString(self, s, current=None):
             raise NotImplementedError("servant method 'printString' not implemented")
 
+        def printUpper(self, s, current=None):
+            raise NotImplementedError("servant method 'printUpper' not implemented")
+
+        def printLower(self, s, current=None):
+            raise NotImplementedError("servant method 'printLower' not implemented")
+
         def __str__(self):
             return IcePy.stringify(self, _M_Demo._t_PrinterDisp)
 
@@ -80,8 +110,89 @@ if 'PrinterPrx' not in _M_Demo.__dict__:
     Printer._ice_type = _M_Demo._t_PrinterDisp
 
     Printer._op_printString = IcePy.Operation('printString', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    Printer._op_printUpper = IcePy.Operation('printUpper', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
+    Printer._op_printLower = IcePy.Operation('printLower', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
 
     _M_Demo.Printer = Printer
     del Printer
+
+_M_Demo._t_Calculator = IcePy.defineValue('::Demo::Calculator', Ice.Value, -1, (), False, True, None, ())
+
+if 'CalculatorPrx' not in _M_Demo.__dict__:
+    _M_Demo.CalculatorPrx = Ice.createTempClass()
+    class CalculatorPrx(Ice.ObjectPrx):
+
+        def addNumbers(self, a, b, context=None):
+            return _M_Demo.Calculator._op_addNumbers.invoke(self, ((a, b), context))
+
+        def addNumbersAsync(self, a, b, context=None):
+            return _M_Demo.Calculator._op_addNumbers.invokeAsync(self, ((a, b), context))
+
+        def begin_addNumbers(self, a, b, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Demo.Calculator._op_addNumbers.begin(self, ((a, b), _response, _ex, _sent, context))
+
+        def end_addNumbers(self, _r):
+            return _M_Demo.Calculator._op_addNumbers.end(self, _r)
+
+        def multiplyNumbers(self, a, b, context=None):
+            return _M_Demo.Calculator._op_multiplyNumbers.invoke(self, ((a, b), context))
+
+        def multiplyNumbersAsync(self, a, b, context=None):
+            return _M_Demo.Calculator._op_multiplyNumbers.invokeAsync(self, ((a, b), context))
+
+        def begin_multiplyNumbers(self, a, b, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Demo.Calculator._op_multiplyNumbers.begin(self, ((a, b), _response, _ex, _sent, context))
+
+        def end_multiplyNumbers(self, _r):
+            return _M_Demo.Calculator._op_multiplyNumbers.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Demo.CalculatorPrx.ice_checkedCast(proxy, '::Demo::Calculator', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Demo.CalculatorPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Demo::Calculator'
+    _M_Demo._t_CalculatorPrx = IcePy.defineProxy('::Demo::Calculator', CalculatorPrx)
+
+    _M_Demo.CalculatorPrx = CalculatorPrx
+    del CalculatorPrx
+
+    _M_Demo.Calculator = Ice.createTempClass()
+    class Calculator(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Demo::Calculator', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::Demo::Calculator'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Demo::Calculator'
+
+        def addNumbers(self, a, b, current=None):
+            raise NotImplementedError("servant method 'addNumbers' not implemented")
+
+        def multiplyNumbers(self, a, b, current=None):
+            raise NotImplementedError("servant method 'multiplyNumbers' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Demo._t_CalculatorDisp)
+
+        __repr__ = __str__
+
+    _M_Demo._t_CalculatorDisp = IcePy.defineClass('::Demo::Calculator', Calculator, (), None, ())
+    Calculator._ice_type = _M_Demo._t_CalculatorDisp
+
+    Calculator._op_addNumbers = IcePy.Operation('addNumbers', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Calculator._op_multiplyNumbers = IcePy.Operation('multiplyNumbers', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+
+    _M_Demo.Calculator = Calculator
+    del Calculator
 
 # End of module Demo
